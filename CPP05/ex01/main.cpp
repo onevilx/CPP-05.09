@@ -7,26 +7,37 @@ int main()
         try
         {
             Bureaucrat v;
+            Form d;
+            v.signForm(d);
+            std::cout << d << std::endl;
             std::cout << v << std::endl;
         }
         catch (std::exception &w)
         {
             std::cout << "1st Exception Caught: " << w.what() << std::endl;
         }
+        std::cout << "\n-------------------------------------\n" << std::endl;
         try
         {
             Bureaucrat d;
-            d.incrementGrade();
+            d.decrementGrade();
+            Form z;
+            d.signForm(z);
             std::cout << d << std::endl;
+            std::cout << z << std::endl;
         }
         catch (std::exception &w)
         {
             std::cout << "2nd Exception Caught: " << w.what() << std::endl;
         }
+        std::cout << "\n-------------------------------------\n" << std::endl;
         try
         {
             Bureaucrat z;
-            z.decrementGrade();
+            z.incrementGrade();
+            Form w;
+            z.signForm(w);
+            std::cout << w << std::endl;
             std::cout << z << std::endl;
         }
         catch (std::exception &w)
@@ -38,26 +49,39 @@ int main()
     {
         try
         {
-            Bureaucrat v("Raysss", -1);
-            v.incrementGrade();
+            Bureaucrat v("Raysss", 10);
+            Form f("contract mzra3a", 50, 22);
+            v.decrementGrade();
+            v.signForm(f);
+            std::cout << f << std::endl;
             std::cout << v << std::endl;
         }
         catch (std::exception &w)
         {
             std::cout << "1st Exception Caught: " << w.what() << std::endl;
         }
+        std::cout << "\n-------------------------------------\n" << std::endl;
         try
         {
-            Bureaucrat d("Youssef", 151);
+            Bureaucrat d("Youssef", 120);
+            Form contract("hrga talyan", 70, 100);
+            d.incrementGrade();
+            d.signForm(contract);
             std::cout << d << std::endl;
+            std::cout << contract << std::endl;
         }
         catch (std::exception &w)
         {
             std::cout << "2nd Exception Caught: " << w.what() << std::endl;
         }
+        std::cout << "\n-------------------------------------\n" << std::endl;
         try
         {
-            Bureaucrat z("Tester", 6);
+            Bureaucrat z("Mowatin", 3);
+            Form tax("Dar Dariba", 2, 10);
+            z.incrementGrade();
+            z.signForm(tax);
+            std::cout << tax << std::endl;
             std::cout << z << std::endl;
         }
         catch (std::exception &w)
@@ -69,27 +93,34 @@ int main()
     {
         try
         {
-            Bureaucrat d("Tester_1", 120);
-            Bureaucrat v("Tester_2", 1);
+            Bureaucrat d("abdlhaak", 120);
+            Bureaucrat v("Dazai", 6);
+            Form contra("transcendence", 6, 10);
             d = v;
             v.decrementGrade();
             d.incrementGrade();
+            d.signForm(contra);
+            v.signForm(contra);
             std::cout << d << std::endl;
             std::cout << v << std::endl;
+            std::cout << contra << std::endl;
         }
         catch (std::exception& e)
         {
             std::cout << "1st Exception Caught: " << e.what() << std::endl;
         }
+        std::cout << "\n-------------------------------------\n" << std::endl;
         try
         {
-            Bureaucrat d("Skinnyyyy", 150);
-            Bureaucrat v("Dazaaaiii", 60);
+            Bureaucrat d("hmstr", 1);
+            Bureaucrat v("levi", 50);
+            Form king("bogitooooo", 50, 25);
             d = v;
-            v.decrementGrade();
-            d.incrementGrade();
+            d.signForm(king);
+            v.signForm(king);
             std::cout << d << std::endl;
             std::cout << v << std::endl;
+            std::cout << king << std::endl;
         }
         catch (std::exception& e)
         {

@@ -1,9 +1,9 @@
-NAME = Bureaucrat
+NAME = Form
 CC = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-SOURCES = main.cpp Bureaucrat.cpp
-INCLUDES = Bureaucrat.hpp
+SOURCES = main.cpp Bureaucrat.cpp Form.cpp
+INCLUDES = Bureaucrat.hpp Form.hpp
 
 OBJ = $(SOURCES:.cpp=.opp)
 

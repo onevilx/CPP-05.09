@@ -71,7 +71,7 @@ static void printTypeFloat(double w)
     std::cout << "float: ";
     float ff = static_cast<float>(w);
 
-    if (std::isnan(ff) ||std::isinf(ff))
+    if (std::isnan(ff) || std::isinf(ff))
         std::cout << ff << "f" << std::endl;
     else if (ff == static_cast<int>(ff))
         std::cout << std::fixed << std::setprecision(1) << ff << "f" << std::endl;
@@ -85,7 +85,7 @@ static void printTypeDouble(double w)
 
     if (std::isnan(w) || std::isinf(w))
         std::cout << w << std::endl;
-    else if (w == static_cast<double>(w))
+    else if (w == static_cast<long long>(w))
         std::cout << std::fixed << std::setprecision(1) << w << std::endl;
     else
         std::cout << std::fixed << std::setprecision(6) << w << std::endl;

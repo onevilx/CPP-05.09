@@ -3,12 +3,12 @@
 
 #include <iostream>
 
-template <typename Type>
+template <typename T>
 
 class Array
 {
     private:
-        Type    *array;
+        T    *array;
         unsigned int _size;
     public:
         Array();
@@ -17,8 +17,8 @@ class Array
         ~Array();
 
         Array& operator=(const Array& content);
-        Type& operator[](unsigned int i);
-        const Type& operator[](unsigned int i) const;
+        T& operator[](unsigned int i);
+        const T& operator[](unsigned int i) const;
 
         unsigned int size() const;
 

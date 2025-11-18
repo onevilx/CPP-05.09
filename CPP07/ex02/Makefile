@@ -3,7 +3,7 @@ CC = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 SOURCES = main.cpp
-INCLUDES = Array.hpp
+INCLUDES = Array.hpp Array.tpp
 
 OBJ = $(SOURCES:.cpp=.opp)
 

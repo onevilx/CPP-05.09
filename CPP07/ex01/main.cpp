@@ -15,12 +15,22 @@ void to_upper(std::string &str)
     }
 }
 
+void print_element(const int &i) { (void)i; }
+
 int main(void)
 {
     {
         std::cout << "----->let's test it with array<-----" << std::endl;
         int array[] = {1, 2, 3, 4, 5};
         ::iter(array, 5, multiple_four);
+        int i = 0;
+        while (i < 5)
+            std::cout << array[i++] << std::endl;
+    }
+    {
+        std::cout << "----->let's test it with const array<-----" << std::endl;
+        const int array[] = {1, 2, 3, 4, 5};
+        ::iter(array, 5, print_element);
         int i = 0;
         while (i < 5)
             std::cout << array[i++] << std::endl;

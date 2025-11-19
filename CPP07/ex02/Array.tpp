@@ -6,7 +6,7 @@ template <typename T>
 Array<T>::Array() : array(NULL), _size(0) {}
 
 template <typename T>
-Array<T>::Array(unsigned int n) : array(new T[n]), _size(n) {}
+Array<T>::Array(unsigned int n) : array(new T[n]()), _size(n) {}
 
 template <typename T>
 Array<T>::Array(const Array& other) : array(NULL), _size(0)

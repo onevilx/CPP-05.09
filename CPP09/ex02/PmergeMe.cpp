@@ -78,6 +78,26 @@ void PmergeMe::binaryInsertDeque(std::deque<int>& chain, int value)
     chain.insert(chain.begin() + left, value);
 }
 
+std::vector<size_t> getJacobsthalOrder(size_t n)
+{
+    std::vector<size_t> order;
+    size_t j = 1;
+    order.push_back(0);
+
+    while (j < n)
+    {
+        order.push_back(j);
+        j = j * 2 + ((j % 2 == 0) ? 1 : 0);
+    }
+
+    for (size_t i = 0; i < n; i++)
+    {
+        if (std::find(order.begin(), order.end(), i) == order.end())
+            order.push_back(i);
+    }
+    return order;
+}
+
 void PmergeMe::fordJohnsonVector(std::vector<int>& v)
 {
     if (v.size() <= 1)
@@ -102,8 +122,9 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& v)
 
     fordJohnsonVector(mainChain);
 
-    for (size_t i = 0; i < pending.size(); i++)
-        binaryInsertVector(mainChain, pending[i]);
+    std::vector<size_t> order = getJacobsthalOrder(pending.size());
+    for (size_t i = 0; i < order.size(); i++)
+        binaryInsertVector(mainChain, pending[order[i]]);
 
     v = mainChain;
 }
@@ -132,8 +153,9 @@ void PmergeMe::fordJohnsonDeque(std::deque<int>& d)
 
     fordJohnsonDeque(mainChain);
 
-    for (size_t i = 0; i < pending.size(); i++)
-        binaryInsertDeque(mainChain, pending[i]);
+    std::vector<size_t> order = getJacobsthalOrder(pending.size());
+    for (size_t i = 0; i < order.size(); i++)
+        binaryInsertDeque(mainChain, pending[order[i]]);
 
     d = mainChain;
 }
@@ -171,10 +193,10 @@ void PmergeMe::process()
     double vecTime = (double)(endVec - startVec) / CLOCKS_PER_SEC * 1e6;
     double deqTime = (double)(endDeq - startDeq) / CLOCKS_PER_SEC * 1e6;
 
+    std::cout << std::fixed << std::setprecision(5);
     std::cout << "Time to process a range of " << _vec.size()
               << " elements with std::vector : "
               << vecTime << " us" << std::endl;
-
     std::cout << "Time to process a range of " << _deq.size()
               << " elements with std::deque  : "
               << deqTime << " us" << std::endl;

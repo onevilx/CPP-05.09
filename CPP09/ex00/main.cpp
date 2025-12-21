@@ -7,9 +7,15 @@ int main(int argc, char **argv)
         std::cout << "Error: could not open file." << std::endl;
         return 1;
     }
-
-    BitcoinExchange btc;
-    btc.loadDatabase("data.csv");
-    btc.processInput(argv[1]);
+    try 
+    {
+        BitcoinExchange btc;
+        btc.loadDatabase("data.csv");
+        btc.processInput(argv[1]);
+    }
+    catch (std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
     return 0;
 }
